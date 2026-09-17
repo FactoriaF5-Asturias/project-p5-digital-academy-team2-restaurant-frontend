@@ -100,3 +100,23 @@ npm run test
 ```
 
 [Volver al índice](#-índice)
+
+---
+
+## 🗂️ Estructura del proyecto
+
+- **`public/`** — imágenes públicas (home, eventos, favicon, iconos)
+- **`src/`** — carpeta principal del código fuente
+  - **`assets/`** — imágenes internas (branding, eventos, home, alérgenos, carta)
+  - **`components/`** — componentes reutilizables
+    - **`cart/`** — componentes del carrito
+    - **`delivery/`** — componentes del panel de repartidor
+    - **`payment/`** — componentes del flujo de pago
+    - **`reservation/`** — componentes de reservas
+  - **`composables/`** — lógica reutilizable (carrito, entregas, eventos, pedidos, pago, productos, reservas)
+  - **`router/`** — configuración de rutas
+  - **`utils/`** — utilidades (formateo de moneda, etc.)
+  - **`Views/`** — vistas de la aplicación (cliente, cocina, repartidor, administración)
+  - **`tests/Views/`** — tests unitarios con Vitest
+
+[Volver al índice](#-índice)
