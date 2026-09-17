@@ -137,3 +137,27 @@ npm run test
 - **[Git](https://git-scm.com/)** / **[GitHub](https://github.com/)** — Control de versiones y alojamiento del proyecto
 
 [Volver al índice](#-índice)
+
+---
+
+## 🕹️ Equipo
+
+Proyecto desarrollado por el **equipo 2** del bootcamp Factoría F5 x Capgemini (Gijón), como parte del proyecto final "Goxu".
+
+---
+
+**[Andrea Vallina](https://github.com/AndreaVaGo)**
+
+**[Gema Miguel](https://github.com/gmp395)**
+
+**[Iker Arduengo](https://github.com/ikerardi-dev)**
+
+**[Jenny Sánchez](https://github.com/Jennydev-25)**
+
+**[Juan Isidro](https://github.com/JuanIsidroMenendez)**
+
+**[Ruddy Cruz](https://github.com/ruddycruzc)**
+
+---
+
+[Volver al índice](#-índice)
