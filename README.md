@@ -30,3 +30,24 @@ El reto de este proyecto es construir, en **Vue 3**, el frontend de _Goxu_, la w
 Desarrollado con **Vue 3 (`<script setup>`)**, **Vite**, **Vue Router** y **Tailwind CSS**, con tests unitarios en **Vitest** y commits siguiendo **Conventional Commits**.
 
 [Volver al índice](#-índice)
+
+---
+
+## 🔍 Análisis
+
+Antes de empezar identificamos las funcionalidades principales del frontend:
+
+- **Login y registro**: acceso y alta de usuarios
+- **Home**: presentación del restaurante, con formulario de contacto
+- **Eventos**: calendario de eventos del restaurante
+- **Ofertas especiales**: promociones destacadas
+- **Carta**: listado de productos por categoría con filtros, obtenidos del backend con datos de ejemplo (mock data) como respaldo si la petición falla
+- **Detalle de producto**: vista individual de cada plato
+- **Carrito y pago**: gestión de la cesta y flujo de pago
+- **Reservas**: formulario de reserva de mesa
+- **Perfil y cuenta**: datos del cliente
+- **Panel de cocina**: tablero de pedidos por estado
+- **Panel de repartidor**: dashboard de entregas y listado de pedidos asignados
+- **Panel de administración**: bienvenida, dashboard del negocio, productos, pedidos y facturación
+
+[Volver al índice](#-índice)
