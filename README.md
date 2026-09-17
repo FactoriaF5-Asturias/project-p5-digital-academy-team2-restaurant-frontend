@@ -77,3 +77,26 @@ Antes de empezar identificamos las funcionalidades principales del frontend:
 - **Inter** — interfaz, botones y etiquetas (ui)
 
 [Volver al índice](#-índice)
+
+---
+
+## 🚀 Instalación
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/FactoriaF5-Asturias/project-p5-digital-academy-team2-restaurant-frontend.git
+
+# 2. Entrar en la carpeta
+cd project-p5-digital-academy-team2-restaurant-frontend
+
+# 3. Instalar dependencias
+npm install
+
+# 4. Iniciar el servidor de desarrollo
+npm run dev
+
+# 5. Ejecutar los tests unitarios
+npm run test
+```
+
+[Volver al índice](#-índice)
