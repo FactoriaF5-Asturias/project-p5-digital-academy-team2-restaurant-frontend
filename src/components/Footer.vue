@@ -15,7 +15,7 @@ const developers = [
 
 <template>
   <footer class="bg-inverse-surface px-5 py-16 text-inverse-on-surface md:px-16">
-    <div class="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 md:grid-cols-3">
+    <div class="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 text-center md:grid-cols-3 md:text-left">
       <div>
         <img :src="logo" alt="Goxu" class="mx-auto block h-48 w-auto" />
         <p class="mt-4 font-body text-body-md text-inverse-on-surface/80">
@@ -34,7 +34,7 @@ const developers = [
 
       <div>
         <h2 class="font-ui text-label-caps font-semibold uppercase tracking-caps text-highlight">Desarrollado por</h2>
-        <ul class="mt-4 flex flex-col gap-3 font-body text-body-md">
+        <ul class="mt-4 flex flex-col items-center gap-3 font-body text-body-md md:items-start">
           <li v-for="dev in developers" :key="dev.name">
             <a :href="dev.github" target="_blank" rel="noopener" class="flex items-center gap-2 hover:underline">
               <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true">
