@@ -51,3 +51,29 @@ Antes de empezar identificamos las funcionalidades principales del frontend:
 - **Panel de administración**: bienvenida, dashboard del negocio, productos, pedidos y facturación
 
 [Volver al índice](#-índice)
+
+---
+
+## 🎨 Identidad de marca
+
+**Concepto:** paleta cálida y natural con verde como color principal, sobre fondo crema, siguiendo el sistema de tokens de Material Design 3.
+
+**Paleta de color:**
+
+| Nombre                   |    HEX    |
+| :----------------------- | :-------: |
+| Primario (verde)         | `#246d00` |
+| Secundario (verde claro) | `#2a6c06` |
+| Terciario (marrón)       | `#7a5644` |
+| Highlight (malva)        | `#d98a98` |
+| Fondo / Surface (crema)  | `#fcf9ef` |
+| Texto sobre superficie   | `#1c1c16` |
+| Error                    | `#ba1a1a` |
+
+**Tipografías:**
+
+- **Cormorant Garamond** — titulares (headline)
+- **Manrope** — texto de cuerpo (body)
+- **Inter** — interfaz, botones y etiquetas (ui)
+
+[Volver al índice](#-índice)
