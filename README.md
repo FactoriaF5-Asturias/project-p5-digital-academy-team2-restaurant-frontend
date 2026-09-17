@@ -120,3 +120,20 @@ npm run test
   - **`tests/Views/`** — tests unitarios con Vitest
 
 [Volver al índice](#-índice)
+
+---
+
+## 🛠️ Tecnologías
+
+- **[Vue 3](https://vuejs.org/)** — Framework del frontend, con `<script setup>`
+- **[Vite](https://vitejs.dev/)** — Servidor de desarrollo y bundler
+- **[Vue Router](https://router.vuejs.org/)** — Enrutado entre vistas
+- **[Tailwind CSS](https://tailwindcss.com/)** — Estilos
+- **[PostCSS](https://postcss.org/)** / **[Autoprefixer](https://github.com/postcss/autoprefixer)** — Procesado de CSS
+- **[Leaflet](https://leafletjs.com/)** — Mapa para el panel de repartidor
+- **[Lucide](https://lucide.dev/)** — Iconos (`lucide-vue-next`)
+- **[Vitest](https://vitest.dev/)** / **[Vue Test Utils](https://test-utils.vuejs.org/)** — Tests unitarios
+- **[jsdom](https://github.com/jsdom/jsdom)** — Entorno DOM para los tests
+- **[Git](https://git-scm.com/)** / **[GitHub](https://github.com/)** — Control de versiones y alojamiento del proyecto
+
+[Volver al índice](#-índice)
