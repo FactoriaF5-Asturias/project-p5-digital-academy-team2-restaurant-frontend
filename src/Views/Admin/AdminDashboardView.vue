@@ -141,15 +141,20 @@ const starProducts = ref([
       <div
         v-for="stat in stats"
         :key="stat.label"
-        class="bg-surface-container-lowest rounded-xl p-4 flex flex-col"
+        class="bg-surface-container-lowest rounded-xl p-4 flex flex-col border border-outline-variant/20 shadow-sm"
       >
-        <div class="flex items-start justify-between">
-          <p class="font-ui text-sm text-outline">{{ stat.label }}</p>
-          <component :is="stat.icon" class="w-4 h-4 text-outline shrink-0" />
+        <div class="flex items-start justify-between gap-3">
+          <p class="font-ui text-sm text-outline">
+            {{ stat.label }}
+          </p>
+
+          <component :is="stat.icon" class="w-5 h-5 text-highlight shrink-0" />
         </div>
-        <p class="font-headline text-2xl font-semibold text-on-surface mt-1">
+
+        <p class="font-headline text-2xl font-semibold text-on-surface mt-2">
           {{ stat.isCurrency ? formatCurrency(stat.value) : stat.value }}
         </p>
+
         <p
           class="font-ui text-xs mt-1"
           :class="stat.up ? 'text-primary' : 'text-outline'"
@@ -160,13 +165,15 @@ const starProducts = ref([
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-4">
-      <div class="bg-surface-container-lowest rounded-xl p-5 lg:col-span-3">
+      <div
+        class="bg-surface-container-lowest rounded-xl p-4 sm:p-5 lg:col-span-3 border border-outline-variant/20 shadow-sm"
+      >
         <div class="flex items-center justify-between">
           <h2 class="font-headline text-lg text-on-surface">
             Tendencia de Ventas (Semana)
           </h2>
           <span
-            class="font-ui text-xs border border-outline-variant/40 px-3 py-1 rounded-md text-on-surface"
+            class="font-ui text-xs border border-highlight/40 px-3 py-1 rounded-md text-highlight"
             >Esta Semana</span
           >
         </div>
@@ -186,17 +193,22 @@ const starProducts = ref([
               class="flex-1 flex flex-col items-center gap-2 h-full justify-end"
             >
               <div
-                class="w-full rounded-t"
+                class="w-full max-w-10 rounded-t"
                 :class="barColor(index)"
                 :style="{ height: (d.value / maxSale) * 100 + '%' }"
               ></div>
-              <span class="font-ui text-xs text-outline">{{ d.day }}</span>
+
+              <span class="font-ui text-xs text-outline">
+                {{ d.day }}
+              </span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="bg-surface-container-lowest rounded-xl p-4">
+      <div
+        class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/20 shadow-sm"
+      >
         <h2 class="font-headline text-lg text-on-surface mb-3">
           Estado de Pedidos
         </h2>
@@ -231,7 +243,7 @@ const starProducts = ref([
     </div>
 
     <div
-      class="bg-surface-container-lowest rounded-xl p-4 mt-4 flex-1 overflow-x-auto"
+      class="bg-surface-container-lowest rounded-xl p-4 mt-4 flex-1 border border-highlight/20 shadow-sm"
     >
       <div class="flex items-center justify-between mb-3">
         <h2 class="font-headline text-lg text-on-surface">
@@ -243,7 +255,48 @@ const starProducts = ref([
           >Ver menú completo</RouterLink
         >
       </div>
-      <table class="w-full min-w-125">
+      <div
+        class="md:hidden flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory"
+      >
+        <div
+          v-for="product in starProducts"
+          :key="product.name"
+          class="min-w-[240px] snap-start bg-surface-container rounded-xl p-3 border border-outline-variant/20"
+        >
+          <img
+            :src="product.image"
+            alt=""
+            class="w-full h-32 object-cover rounded-lg"
+          />
+
+          <div class="mt-3">
+            <p class="font-ui font-semibold text-on-surface">
+              {{ product.name }}
+            </p>
+
+            <p class="font-body text-xs text-outline mt-1">
+              {{ product.category }}
+            </p>
+
+            <div class="flex items-center justify-between mt-3">
+              <div>
+                <p class="font-ui text-xs text-outline">Vendidos</p>
+                <p class="font-headline text-lg font-semibold text-on-surface">
+                  {{ product.sold }}
+                </p>
+              </div>
+
+              <div class="text-right">
+                <p class="font-ui text-xs text-outline">Ingresos</p>
+                <p class="font-ui text-sm font-semibold text-primary">
+                  {{ product.revenue }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <table class="hidden md:table w-full min-w-125">
         <thead>
           <tr
             class="font-ui text-xs text-outline text-left border-b border-outline-variant/30"
