@@ -46,8 +46,8 @@ function logout() {
     <div
       class="md:hidden fixed top-0 left-0 right-0 z-30 bg-inverse-surface px-5 py-3 flex items-center justify-between"
     >
-      <RouterLink to="/admin" class="shrink-0">
-        <img :src="logo" alt="Goxu" class="h-12 w-auto" />
+      <RouterLink to="/admin" class="hidden md:block w-fit">
+        <img :src="logo" alt="Goxu" class="h-16 w-auto" />
       </RouterLink>
 
       <button
@@ -81,20 +81,20 @@ function logout() {
             :key="item.name"
             :to="{ name: item.name }"
             @click="closeMenu"
-            class="group flex items-center gap-3 px-4 py-3 rounded-lg font-ui font-semibold text-inverse-on-surface/80 transition-colors hover:bg-highlight/10 hover:text-inverse-on-surface"
-            exact-active-class="bg-highlight text-on-surface"
+            class="group flex items-center gap-3 px-4 py-3 rounded-lg font-ui font-semibold text-inverse-on-surface/80 transition-all duration-200 hover:bg-highlight/25 hover:text-inverse-on-surface"
+            exact-active-class="bg-highlight text-on-primary-container"
           >
             <component
               :is="item.icon"
-              class="w-4 h-4 text-highlight/70 transition-colors group-hover:text-highlight"
-            />
+              class="w-4 h-4 text-highlight/80 transition-transform duration-200 group-hover:scale-105"
+  />
             {{ item.label }}
           </RouterLink>
         </nav>
       </div>
 
       <div>
-        <hr class="border-outline-variant/30 mb-4" />
+        <hr class="border-inverse-on-surface/15 mb-4"  />
         <div class="flex items-center gap-3">
           <img
             :src="admin.avatar"
@@ -102,17 +102,18 @@ function logout() {
             class="w-9 h-9 rounded-full object-cover"
           />
           <div>
-            <p class="font-ui text-sm font-semibold text-on-surface">
+            <p class="font-ui text-sm font-semibold text-inverse-on-surface">
               {{ admin.name }}
             </p>
-            <p class="font-ui text-xs text-outline">{{ admin.email }}</p>
+            <p class="font-ui text-xs text-inverse-on-surface/50">
+              {{ admin.email }}
+            </p>
           </div>
         </div>
         <button
           @click="logout"
-          class="mt-4 flex items-center gap-2 font-ui text-sm font-semibold text-error"
-        >
-          <LogOut class="w-4 h-4" />
+          class="group mt-4 flex items-center gap-2 font-ui text-sm font-semibold text-highlight transition-colors duration-200 hover:text-highlight/80">
+          <LogOut class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"/>
           Log out
         </button>
       </div>
