@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import { createRouter, createWebHistory } from "vue-router";
-import ProductDetailView from "../../Views/ProductDetailView.vue";
+import ProductDetailView from "../../Views/Menu/ProductDetailView.vue";
 
 const router = createRouter({
   history: createWebHistory(),

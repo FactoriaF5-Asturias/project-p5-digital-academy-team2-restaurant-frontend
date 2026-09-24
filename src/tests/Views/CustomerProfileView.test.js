@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import CustomerProfileView from "../../Views/CustomerProfileView.vue";
+import CustomerProfileView from "../../Views/Account/CustomerProfileView.vue";
 
 describe("CustomerProfileView", () => {
   it("muestra un error y no guarda si un campo obligatorio está vacío", async () => {

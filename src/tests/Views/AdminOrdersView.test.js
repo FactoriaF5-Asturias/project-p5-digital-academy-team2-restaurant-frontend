@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import AdminOrdersView from "../../Views/Admin/AdminOrdersView.vue";
+import AdminOrdersView from "../../Views/Admin/Orders/AdminOrdersView.vue";
 
 describe("AdminOrdersView", () => {
   it("cuenta correctamente los pedidos activos", () => {

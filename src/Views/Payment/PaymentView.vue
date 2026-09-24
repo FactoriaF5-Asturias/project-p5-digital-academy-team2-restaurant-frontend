@@ -1,15 +1,15 @@
 <script setup>
 import { ref } from "vue";
-import PaymentMethodSelector from "../components/payment/PaymentMethodSelector.vue";
-import PaymentCard from "../components/payment/PaymentCard.vue";
-import PaymentSummary from "../components/payment/PaymentSummary.vue";
-import PaymentAction from "../components/payment/PaymentAction.vue";
-import { usePayment } from "../composables/usePayment";
-import BaseModal from "../components/BaseModal.vue";
-import PaymentErrorModal from "../components/payment/PaymentErrorModal.vue";
-import PaymentRejectedModal from "../components/payment/PaymentRejectedModal.vue";
-import PaymentMaxAttemptsModal from "../components/payment/PaymentMaxAttemptsModal.vue";
-import PaymentCancelModal from "../components/payment/PaymentCancelModal.vue";
+import PaymentMethodSelector from "../../components/payment/PaymentMethodSelector.vue";
+import PaymentCard from "../../components/payment/PaymentCard.vue";
+import PaymentSummary from "../../components/payment/PaymentSummary.vue";
+import PaymentAction from "../../components/payment/PaymentAction.vue";
+import { usePayment } from "../../composables/usePayment";
+import BaseModal from "../../components/BaseModal.vue";
+import PaymentErrorModal from "../../components/payment/PaymentErrorModal.vue";
+import PaymentRejectedModal from "../../components/payment/PaymentRejectedModal.vue";
+import PaymentMaxAttemptsModal from "../../components/payment/PaymentMaxAttemptsModal.vue";
+import PaymentCancelModal from "../../components/payment/PaymentCancelModal.vue";
 
 const paymentMethod = ref("card");
 const showCancelModal = ref(false);

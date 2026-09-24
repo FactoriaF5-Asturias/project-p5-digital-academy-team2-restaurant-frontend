@@ -1,9 +1,9 @@
 <script setup>
 import { computed } from 'vue'
-import HeroSection from './HeroSection.vue'
-import SpecialtiesSection from './SpecialtiesSection.vue'
-import EventsSection from './EventsSection.vue'
-import ContactForm from './ContactForm.vue'
+import HeroSection from '../../components/HeroSection.vue'
+import SpecialtiesSection from '../../components/SpecialtiesSection.vue'
+import EventsSection from '../../components/EventsSection.vue'
+import ContactForm from '../../components/ContactForm.vue'
 import { useProducts } from '@/composables/useProducts'
 import { useEvents } from '@/composables/useEvents'
 

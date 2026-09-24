@@ -1,13 +1,13 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import CartItem from "../components/cart/CartItem.vue";
-import CartSummary from "../components/cart/CartSummary.vue";
-import CartEmpty from "../components/cart/CartEmpty.vue";
-import { useCart } from "../composables/useCart";
-import { useOrder } from "../composables/useOrder.js";
+import CartItem from "../../components/cart/CartItem.vue";
+import CartSummary from "../../components/cart/CartSummary.vue";
+import CartEmpty from "../../components/cart/CartEmpty.vue";
+import { useCart } from "../../composables/useCart";
+import { useOrder } from "../../composables/useOrder.js";
 
-import cachopoImage from "../assets/images/menu/cachopo-tradicional.png";
-import tablaQuesosImage from "../assets/images/eventos/chosco-evento.png"; //imagenes luego se cambian con la Api externa
+import cachopoImage from "../../assets/images/menu/cachopo-tradicional.png";
+import tablaQuesosImage from "../../assets/images/eventos/chosco-evento.png"; //imagenes luego se cambian con la Api externa
 
 const {
   cartItems,
