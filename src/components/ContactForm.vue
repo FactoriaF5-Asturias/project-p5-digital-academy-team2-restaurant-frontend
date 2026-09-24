@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section class="relative px-6 py-16 lg:px-16 flex justify-center">
+  <section id="contacto" class="relative px-6 py-16 lg:px-16 flex justify-center">
     <div class="absolute inset-0 bg-black/30"></div>
 
     <div class="relative bg-surface-container-lowest rounded-3xl shadow-xl w-full max-w-2xl p-8 md:p-12">

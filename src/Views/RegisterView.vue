@@ -51,9 +51,25 @@ function handleSubmit() {}
             autocomplete="email"
           />
           <BaseInput
+            id="confirmEmail"
+            v-model="confirmEmail"
+            label="Confirmar correo electrónico"
+            type="email"
+            placeholder="tu@email.com"
+            autocomplete="email"
+          />
+          <BaseInput
             id="password"
             v-model="password"
             label="Contraseña"
+            type="password"
+            placeholder="••••••••"
+            autocomplete="new-password"
+          />
+           <BaseInput
+            id="confirmPassword"
+            v-model="confirmPassword"
+            label="Confirmar contraseña"
             type="password"
             placeholder="••••••••"
             autocomplete="new-password"
