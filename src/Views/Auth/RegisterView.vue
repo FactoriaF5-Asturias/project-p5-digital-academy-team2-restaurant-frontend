@@ -1,15 +1,52 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import AuthTabs from '../../components/AuthTabs.vue'
 import BaseInput from '../../components/BaseInput.vue'
 import BaseButton from '../../components/BaseButton.vue'
+import { loadRecaptcha, getRecaptchaToken } from '../../composables/useRecaptcha'
 
 const firstName = ref('')
 const lastName = ref('')
 const email = ref('')
+const confirmEmail = ref('')
 const password = ref('')
+const confirmPassword = ref('')
+const submitted = ref(false)
+const verifying = ref(false)
 
-function handleSubmit() {}
+const emailMismatch = computed(
+  () => (confirmEmail.value !== '' || submitted.value) && confirmEmail.value !== email.value
+)
+const passwordMismatch = computed(
+  () => (confirmPassword.value !== '' || submitted.value) && confirmPassword.value !== password.value
+)
+
+onMounted(() => {
+  loadRecaptcha().catch((error) => console.error(error.message))
+})
+
+async function handleSubmit() {
+  submitted.value = true
+  if (emailMismatch.value || passwordMismatch.value) return
+
+  verifying.value = true
+  try {
+    const recaptchaToken = await getRecaptchaToken('register')
+    // Pendiente de conectar: enviar estos datos y el token al backend, que debe verificarlo con la clave secreta
+    const payload = {
+      firstName: firstName.value,
+      lastName: lastName.value,
+      email: email.value,
+      password: password.value,
+      recaptchaToken,
+    }
+    return payload
+  } catch (error) {
+    console.error(error.message)
+  } finally {
+    verifying.value = false
+  }
+}
 </script>
 
 <template>
@@ -50,6 +87,19 @@ function handleSubmit() {}
             placeholder="tu@email.com"
             autocomplete="email"
           />
+          <div>
+            <BaseInput
+              id="confirmEmail"
+              v-model="confirmEmail"
+              label="Confirmar correo electrónico"
+              type="email"
+              placeholder="tu@email.com"
+              autocomplete="email"
+            />
+            <p v-if="emailMismatch" class="mt-2 font-body text-sm text-error" role="alert">
+              Los correos electrónicos no coinciden.
+            </p>
+          </div>
           <BaseInput
             id="password"
             v-model="password"
@@ -58,8 +108,33 @@ function handleSubmit() {}
             placeholder="••••••••"
             autocomplete="new-password"
           />
+          <div>
+            <BaseInput
+              id="confirmPassword"
+              v-model="confirmPassword"
+              label="Confirmar contraseña"
+              type="password"
+              placeholder="••••••••"
+              autocomplete="new-password"
+            />
+            <p v-if="passwordMismatch" class="mt-2 font-body text-sm text-error" role="alert">
+              Las contraseñas no coinciden.
+            </p>
+          </div>
 
-          <BaseButton type="submit">Crear cuenta</BaseButton>
+          <p class="font-body text-xs text-on-surface-variant">
+            Este sitio está protegido por reCAPTCHA y se aplican la
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="underline">
+              Política de privacidad
+            </a>
+            y las
+            <a href="https://policies.google.com/terms" target="_blank" rel="noopener" class="underline">
+              Condiciones del servicio
+            </a>
+            de Google.
+          </p>
+
+          <BaseButton type="submit" :disabled="verifying">Crear cuenta</BaseButton>
         </form>
 
         <RouterLink
@@ -72,3 +147,9 @@ function handleSubmit() {}
     </div>
   </div>
 </template>
+
+<style>
+.grecaptcha-badge {
+  visibility: hidden;
+}
+</style>

@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import logo from '../assets/images/branding/logo-Goxu.png'
 import userIcon from '../assets/images/home/login.png'
 import cartIcon from '../assets/images/home/carrito.png'
@@ -9,11 +10,34 @@ const links = [
   { label: 'Carta', to: '/carta' },
   { label: 'Reservas', to: '/reservation' },
   { label: 'Nosotros', to: null },
-  { label: 'Contacto', to: null },
+  { label: 'Contacto', to: null, action: 'contact' },
   { label: 'Ofertas', to: '/ofertas-eventos' },
 ]
 
+const route = useRoute()
+const router = useRouter()
 const menuOpen = ref(false)
+
+const linkClasses =
+  'inline-block font-ui text-sm font-semibold text-inverse-on-surface transition duration-300 hover:scale-105 hover:text-highlight'
+
+const iconLinkClasses =
+  'flex h-10 w-10 items-center justify-center rounded-lg bg-transparent transition-colors duration-500 ease-in-out hover:bg-inverse-on-surface/15'
+
+function scrollToContact() {
+  document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+async function goToContact() {
+  menuOpen.value = false
+  if (route.path === '/') {
+    scrollToContact()
+    return
+  }
+  await router.push('/')
+  await nextTick()
+  setTimeout(scrollToContact, 650)
+}
 </script>
 
 <template>
@@ -25,25 +49,23 @@ const menuOpen = ref(false)
 
       <nav class="hidden items-center gap-6 md:flex">
         <template v-for="link in links" :key="link.label">
-          <RouterLink
-            v-if="link.to"
-            :to="link.to"
-            class="font-ui text-sm font-semibold text-inverse-on-surface hover:text-highlight"
-            active-class="text-highlight"
-          >
+          <RouterLink v-if="link.to" :to="link.to" :class="linkClasses" active-class="text-highlight">
             {{ link.label }}
           </RouterLink>
+          <a v-else-if="link.action === 'contact'" href="#contacto" :class="linkClasses" @click.prevent="goToContact">
+            {{ link.label }}
+          </a>
           <span v-else class="font-ui text-sm font-semibold text-inverse-on-surface/50">{{ link.label }}</span>
         </template>
       </nav>
 
       <div class="flex items-center gap-4">
-        <RouterLink to="/account">
-          <img :src="userIcon" alt="Mi cuenta" class="h-12 w-12" />
+        <RouterLink to="/account" :class="iconLinkClasses">
+          <img :src="userIcon" alt="Mi cuenta" class="h-12 w-12 shrink-0" />
         </RouterLink>
-        <RouterLink to="/cart" class="relative">
-          <img :src="cartIcon" alt="Carrito" class="h-5 w-5" />
-          <span class="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-highlight"></span>
+        <RouterLink to="/cart" :class="[iconLinkClasses, 'relative']">
+          <img :src="cartIcon" alt="Carrito" class="h-5 w-5 shrink-0" />
+          <span class="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-highlight"></span>
         </RouterLink>
 
         <button
@@ -59,17 +81,25 @@ const menuOpen = ref(false)
       </div>
     </div>
 
-    <nav v-if="menuOpen" class="mt-4 flex flex-col gap-4 md:hidden">
+    <nav v-if="menuOpen" class="mt-4 flex flex-col items-start gap-4 md:hidden">
       <template v-for="link in links" :key="link.label">
         <RouterLink
           v-if="link.to"
           :to="link.to"
-          class="font-ui text-sm font-semibold text-inverse-on-surface hover:text-highlight"
+          :class="[linkClasses, 'origin-left']"
           active-class="text-highlight"
           @click="menuOpen = false"
         >
           {{ link.label }}
         </RouterLink>
+        <a
+          v-else-if="link.action === 'contact'"
+          href="#contacto"
+          :class="[linkClasses, 'origin-left']"
+          @click.prevent="goToContact"
+        >
+          {{ link.label }}
+        </a>
         <span v-else class="font-ui text-sm font-semibold text-inverse-on-surface/50">{{ link.label }}</span>
       </template>
     </nav>
