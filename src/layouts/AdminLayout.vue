@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
-import logo from "../../assets/images/branding/logo-Goxu.png";
+import logo from "../assets/images/branding/logo-Goxu.png";
 import {
   LayoutGrid,
   UtensilsCrossed,

@@ -1,12 +1,13 @@
 <script setup>
 import { ref } from 'vue'
-import AuthTabs from '../components/AuthTabs.vue'
-import BaseInput from '../components/BaseInput.vue'
-import BaseButton from '../components/BaseButton.vue'
+import AuthTabs from '../../components/AuthTabs.vue'
+import BaseInput from '../../components/BaseInput.vue'
+import BaseButton from '../../components/BaseButton.vue'
 
+const firstName = ref('')
+const lastName = ref('')
 const email = ref('')
 const password = ref('')
-const rememberMe = ref(false)
 
 function handleSubmit() {}
 </script>
@@ -19,10 +20,28 @@ function handleSubmit() {}
       <div class="w-full max-w-md">
         <AuthTabs />
 
-        <h1 class="mt-10 font-headline text-headline-md font-medium text-on-surface">Bienvenido de nuevo</h1>
-        <p class="mt-2 font-body text-body-md text-on-surface-variant">Accede para gestionar tus reservas y pedidos.</p>
+        <h1 class="mt-10 font-headline text-headline-md font-medium text-on-surface">Crea tu cuenta</h1>
+        <p class="mt-2 font-body text-body-md text-on-surface-variant">
+          Regístrate para gestionar tus reservas y pedidos.
+        </p>
 
         <form class="mt-8 flex flex-col gap-6" @submit.prevent="handleSubmit">
+          <BaseInput
+            id="firstName"
+            v-model="firstName"
+            label="Nombre"
+            type="text"
+            placeholder="Tu nombre"
+            autocomplete="given-name"
+          />
+          <BaseInput
+            id="lastName"
+            v-model="lastName"
+            label="Apellidos"
+            type="text"
+            placeholder="Tus apellidos"
+            autocomplete="family-name"
+          />
           <BaseInput
             id="email"
             v-model="email"
@@ -37,24 +56,10 @@ function handleSubmit() {}
             label="Contraseña"
             type="password"
             placeholder="••••••••"
-            autocomplete="current-password"
+            autocomplete="new-password"
           />
 
-          <div class="flex items-center justify-between">
-            <label class="flex items-center gap-2 font-body text-sm text-on-surface">
-              <input
-                v-model="rememberMe"
-                type="checkbox"
-                class="h-4 w-4 rounded-sm border-outline text-primary focus:ring-primary"
-              />
-              Recordar sesión
-            </label>
-            <button type="button" class="font-body text-sm text-highlight hover:underline">
-              ¿Recuperar contraseña?
-            </button>
-          </div>
-
-          <BaseButton type="submit">Entrar</BaseButton>
+          <BaseButton type="submit">Crear cuenta</BaseButton>
         </form>
 
         <RouterLink
