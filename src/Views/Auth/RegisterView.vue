@@ -1,9 +1,9 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import AuthTabs from '../components/AuthTabs.vue'
-import BaseInput from '../components/BaseInput.vue'
-import BaseButton from '../components/BaseButton.vue'
-import { loadRecaptcha, getRecaptchaToken } from '../composables/useRecaptcha'
+import AuthTabs from '../../components/AuthTabs.vue'
+import BaseInput from '../../components/BaseInput.vue'
+import BaseButton from '../../components/BaseButton.vue'
+import { loadRecaptcha, getRecaptchaToken } from '../../composables/useRecaptcha'
 
 const firstName = ref('')
 const lastName = ref('')

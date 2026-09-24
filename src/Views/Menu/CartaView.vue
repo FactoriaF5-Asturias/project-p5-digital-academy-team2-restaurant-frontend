@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
-import CategoryTabs from '../components/CategoryTabs.vue'
-import ProductCard from '../components/ProductCard.vue'
+import CategoryTabs from '../../components/CategoryTabs.vue'
+import ProductCard from '../../components/ProductCard.vue'
 
 import cachopoImg from '@/assets/images/menu/cachopo-tradicional.png'
 import fabadaImg from '@/assets/images/menu/fabada.png'

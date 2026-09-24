@@ -1,9 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import AuthTabs from '../components/AuthTabs.vue'
-import BaseInput from '../components/BaseInput.vue'
-import BaseButton from '../components/BaseButton.vue'
-
+import AuthTabs from '../../components/AuthTabs.vue'
+import BaseInput from '../../components/BaseInput.vue'
+import BaseButton from '../../components/BaseButton.vue'
 const email = ref('')
 const password = ref('')
 const rememberMe = ref(false)

@@ -1,7 +1,7 @@
 <script setup>
 import { Truck } from "lucide-vue-next";
-import { formatCurrency } from "../utils/formatCurrency";
-import { allOrders } from "../composables/useDeliveryState";
+import { formatCurrency } from "../../utils/formatCurrency";
+import { allOrders } from "../../composables/useDeliveryState";
 
 const columns = "grid-cols-[80px_120px_70px_1fr_90px_90px_110px]";
 </script>
